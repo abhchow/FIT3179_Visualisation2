@@ -1,4 +1,4 @@
-Entity,Code,Year,Wind Consumption - TWh,Hydro Consumption - TWh,Solar Consumption - TWh,Nuclear Consumption - TWh,Biofuels Consumption - TWh - Total,Geo Biomass Other - TWh,Coal Consumption - TWh,Oil Consumption - TWh,Gas Consumption - TWh,
+Entity,Code,Year,Wind Consumption - TWh,Hydro Consumption - TWh,Solar Consumption - TWh,Nuclear Consumption - TWh,Biofuels Consumption - TWh - Total,Geo Biomass Other - TWh,Coal,Oil Consumption - TWh,Gas Consumption - TWh,
 Africa,,1965,0,41.118812561035156,,0,,,323.4961242675781,341.26275634765625,9.543754577636719,
 Africa,,1966,0,45.8629150390625,,0,,,323.1221923828125,369.486572265625,10.669916152954102,
 Africa,,1967,0,47.87553787231445,,0,,,330.29156494140625,368.125244140625,10.545669555664062,
