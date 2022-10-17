@@ -19,12 +19,12 @@
                 "fields": ["Coal"]
             }
         },
-        { "calculate": "datum.Coal + 0.1", "as": "Coal Consumption" }
+        { "calculate": "datum.Coal + 0.1", "as": "Coal Consumption1" }
     ],
     "mark": { "type": "geoshape" },
     "encoding": {
         "color": {
-            "field": "Coal Consumption",
+            "field": "Coal Consumption1",
             "type": "quantitative",
             "scale": { "type": "log" }
         },
