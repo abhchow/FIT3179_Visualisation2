@@ -6,11 +6,11 @@
     "projection": { "type": "equalEarth" },
     "params": [{
         "name": "Year_selection",
-        "value": 1978,
+        "value": 1,
         "bind": {
             "input": "range",
-            "min": 1965,
-            "max": 202,
+            "min": 1,
+            "max": 10000,
             "step": 1,
             "name": "Year:  "
         }
@@ -28,11 +28,11 @@
                     "url": "https://abhchow.github.io/FIT3179_Visualisation2/joined_pop_energy.csv"
                 },
                 "key": "Entity",
-                "fields": ["Year", "CoalTWh"]
+                "fields": ["CoalTWh"]
             }
         },
 
-        { "filter": "datum.Year == Year_selection" },
+        { "filter": "datum.CoalTWh > Year_selection" },
         { "calculate": "datum.CoalTWh + 1", "as": "Coal Consumption" }
     ],
     
