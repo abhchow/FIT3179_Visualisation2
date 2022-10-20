@@ -32,7 +32,6 @@
             }
         },
 
-        { "filter": "datum.Year == Year_selection"},
         { "calculate": "datum.CoalTWh + 1", "as": "Coal Consumption" }
     ],
     

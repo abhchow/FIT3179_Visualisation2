@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Coal Consumption",
+    "width": 800,
+    "height": 400,
+    "projection": { "type": "equalEarth" },
+    "params": [{
+        "name": "Year_selection",
+        "value": 2000,
+        "bind": {
+            "input": "range",
+            "min": 1965,
+            "max": 2021,
+            "step": 1,
+            "name": "Year:  "
+        }
+    }
+],
+"data": {
+    "url": "https://abhchow.github.io/FIT3179_Visualisation2//map1/js/ne_110m_admin_0_countries.topojson"
+},
+"transform": [{
+        "lookup": "CoalTWh",
+        "from": {
+            "data": {
+                "url": "https://abhchow.github.io/FIT3179_Visualisation2/joined_pop_energy.csv",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "key": "properties.NAME"
+        },
+        "as": "geo"
+    },
+    { "filter": "datum.Year == Year_selection" }
+],
+"mark": { "type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5 },
+"encoding": {
+    "shape": { "field": "geo", "type": "geojson" },
+    "color": {
+        "field": "CoalTWh",
+        "type": "quantitative",
+        "scale": {
+            "domain": [
+                0.1,
+                10000
+            ],
+            "scheme": "reds"
+        },
+        "legend": { "format": ".2s" }
+    },
+    "tooltip": [
+        { "field": "CoalTWh", "type": "nominal", "title": "coal cons" },
+        {
+            "field": "CoalTWh",
+            "type": "quantitative",
+            "title": "Coal Consumption",
+            "format": ","
+        },
+        { "field": "Year", "type": "quantitative", "title": "Year" }
+    ]
+}
+}
