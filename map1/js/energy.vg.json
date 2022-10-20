@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "2021 Coal Consumption",
+    "title": "Coal Consumption",
     "width": 800,
     "height": 400,
     "projection": { "type": "equalEarth" },
@@ -28,11 +28,12 @@
                     "url": "https://abhchow.github.io/FIT3179_Visualisation2/joined_pop_energy.csv"
                 },
                 "key": "Entity",
-                "fields": ["Population", "HydroConsumptionTWh"]
+                "fields": ["Population", "CoalTWh", "Year"]
             }
         },
 
-        { "calculate": "datum.Population + 1", "as": "Coal Consumption" }
+        { "filter": "datum.Year == Year_selection"},
+        { "calculate": "datum.CoalTWh + 1", "as": "Coal Consumption" }
     ],
     
     "mark": { "type": "geoshape" },
@@ -47,7 +48,7 @@
         },
         "tooltip": [
             { "field": "properties.NAME", "type": "nominal", "title": "Entity" },
-            { "field": "Population", "type": "quantitative" }
+            { "field": "CoalTWh", "type": "quantitative" }
         ]
     }
 }
