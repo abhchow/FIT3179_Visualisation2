@@ -28,11 +28,10 @@
                     "url": "https://abhchow.github.io/FIT3179_Visualisation2/joined_pop_energy.csv"
                 },
                 "key": "Entity",
-                "fields": ["Year", "CoalTWh"]
+                "fields": ["CoalTWh"]
             }
         },
 
-        { "filter": "datum.Year == Year_selection" },
         { "calculate": "datum.CoalTWh + 1", "as": "Coal Consumption" }
     ],
     
