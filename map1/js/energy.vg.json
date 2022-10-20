@@ -16,10 +16,10 @@
                     "url": "https://abhchow.github.io/FIT3179_Visualisation2/map1/data/cleaned_sub_energy_source2021.csv"
                 },
                 "key": "Entity",
-                "fields": ["Coal"]
+                "fields": ["CoalTwh"]
             }
         },
-        { "calculate": "datum.Coal + 1", "as": "Coal Consumption" }
+        { "calculate": "datum.CoalTWh + 1", "as": "Coal Consumption" }
     ],
     "mark": { "type": "geoshape" },
     "encoding": {
