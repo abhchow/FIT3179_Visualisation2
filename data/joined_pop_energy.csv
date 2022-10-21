@@ -1,4 +1,4 @@
-Entity,Code,Year,WindConsumptionTWh,HydroConsumptionTWh,SolarConsumptionTWh,NuclearConsumptionTWh,BiofuelsConsumptionTWh,GeoBiomassTWh,CoalTWh,OilConsumptionTWh,GasConsumptionTWh,Population
+Entity,Code,Year,Wind,Hydro,Solar,Nuclear,Biofuels,GeoBiomass,Coal,Oil,Gas,Population
 Algeria,DZA,1965,0,1.182795882,0,0,0,0,0.814100027,15.4052515,7.430500031,12550880
 Algeria,DZA,1966,0,1.049731135,0,0,0,0,0.79084003,20.27270508,7.719250202,12902626
 Algeria,DZA,1967,0,1.212365508,0,0,0,0,0.604759991,18.94203186,7.488249779,13275020
