@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Fossil Fuels Over Time",
+    "title": "Global Energy Consumption",
     "width": 700,
     "height": 400,
     "projection": { "type": "equalEarth" },
@@ -14,6 +14,14 @@
                 "max": 2021,
                 "step": 1,
                 "name": "Year:  "
+            }
+        },
+        {
+            "name": "Source",
+            "value": "All",
+            "bind": {
+                "input": "select",
+                "options": ["All", "Wind", "Hydro", "Solar", "Nuclear", "Biofuels", "GeoBiomass", "Coal", "Oil", "Gas"]
             }
         }
     ],
@@ -39,7 +47,7 @@
         },
         {
             "data": {
-                "url": "https://raw.githubusercontent.com/abhchow/FIT3179_Visualisation2/main/data/joined_pop_energy.csv"
+                "url": "https://raw.githubusercontent.com/abhchow/FIT3179_Visualisation2/main/data/transpose_pop_energy.csv"
             },
             "transform": [
                 {
@@ -56,20 +64,23 @@
                     },
                     "as": "geo"
                 },
+
+                { "filter": "(Source == 'All') | Source == datum.Source" },
+                { "calculate": "(datum.Consumption)/datum.Population*1000000", "as": "EnergyConAllYears" },
                 { "filter": "datum.Year == Year_selection" },
-                { "calculate": "datum.Gas/datum.Population * 1000000", "as": "Gas Consumption" },
-                { "calculate": "datum.Coal/datum.Population * 1000000", "as": "Coal Consumption" },
-                { "calculate": "(datum.Coal * 1 + datum.Gas * 1)/datum.Population*1000000", "as": "Fossil Fuels" }
+                { "calculate": "(datum.Consumption)/datum.Population*1000000", "as": "EnergyCon" }
             ],
             "mark": { "type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5 },
             "encoding": {
                 "shape": { "field": "geo", "type": "geojson" },
                 "color": {
-                    "field": "Fossil Fuels",
-                    "title": ["Fossil Fuels", "(MWh per capita)"],
+                    "aggregate": "sum",
+                    "field": "EnergyCon",
+                    "title": ["Energy Consumption", "(MWh per capita)"],
                     "type": "quantitative",
                     "scale": {
-                        "domain": [0.01, 100],
+                        
+                        "domain": [0, {"expr": "Source == 'All' ? 200 : Source == 'Wind' ? 8 : Source == 'Hydro' ? 100 : Source == 'Solar' ? 3 : Source == 'Nuclear' ? 20 : Source == 'Biofuels' ? 2 : Source == 'GeoBiomass' ? 15 : Source == 'Coal' ? 40 : Source == 'Oil' ? 100 : Source == 'Gas' ? 100 : 200"}],
                         "scheme": "greens",
                         "type": "linear"
                     },
@@ -79,9 +90,10 @@
                     { "field": "Entity", "type": "nominal", "title": "Country" },
                     { "field": "Year", "type": "quantitative", "title": "Year" },
                     {
-                        "field": "Fossil Fuels",
+                        "aggregate": "sum",
+                        "field": "EnergyCon",
                         "type": "quantitative",
-                        "title": ["Fossil Fuels (MWh per capita)"],
+                        "title": ["Energy Consumption (MWh per capita)"],
                         "format": ".4f"
                     }
                 ]

@@ -57,9 +57,9 @@
                     "as": "geo"
                 },
                 { "filter": "datum.Year == Year_selection" },
-                { "calculate": "datum.GasConsumptionTWh/datum.Population * 1000000", "as": "Gas Consumption" },
-                { "calculate": "datum.CoalTWh/datum.Population * 1000000", "as": "Coal Consumption" },
-                { "calculate": "(datum.CoalTWh * 1 + datum.GasConsumptionTWh * 1)/datum.Population*1000000", "as": "Fossil Fuels" }
+                { "calculate": "datum.Gas/datum.Population * 1000000", "as": "Gas Consumption" },
+                { "calculate": "datum.Coal/datum.Population * 1000000", "as": "Coal Consumption" },
+                { "calculate": "(datum.Coal * 1 + datum.Gas * 1)/datum.Population*1000000", "as": "Fossil Fuels" }
             ],
             "mark": { "type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5 },
             "encoding": {
