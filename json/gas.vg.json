@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Fossil Fuels Over Time",
+    "title": "Gas Consumption Over Time",
     "width": 700,
     "height": 400,
     "projection": { "type": "equalEarth" },
@@ -65,11 +65,11 @@
             "encoding": {
                 "shape": { "field": "geo", "type": "geojson" },
                 "color": {
-                    "field": "Fossil Fuels",
-                    "title": ["Fossil Fuels", "(MWh per capita)"],
+                    "field": "Gas Consumption",
+                    "title": ["Gas Consumption", "(MWh per capita)"],
                     "type": "quantitative",
                     "scale": {
-                        "domain": [0.01, 100],
+                        "domain": [0.01, 50],
                         "scheme": "greens",
                         "type": "linear"
                     },
@@ -79,9 +79,9 @@
                     { "field": "Entity", "type": "nominal", "title": "Country" },
                     { "field": "Year", "type": "quantitative", "title": "Year" },
                     {
-                        "field": "Fossil Fuels",
+                        "field": "Gas Consumption",
                         "type": "quantitative",
-                        "title": ["Fossil Fuels (MWh per capita)"],
+                        "title": ["Gas Consumption (MWh per capita)"],
                         "format": ".4f"
                     }
                 ]
