@@ -94,7 +94,7 @@
         { "filter": "datum.Entity == Country" },
         { "calculate": "datum.Consumption/datum.Population * 1000000", "as": "ConsumptionNorm" }
     ],
-    "mark": { "type": "bar" },
+    "mark": { "type": "line" },
     "encoding": {
         "x": { "timeUnit": "year", "field": "Year", "type": "ordinal", "title": "" },
         "y":

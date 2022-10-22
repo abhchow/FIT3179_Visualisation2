@@ -1,10 +1,19 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Global Energy Consumption",
-    "width": 700,
+    "width": "container",
     "height": 400,
     "projection": { "type": "equalEarth" },
     "params": [
+        {
+            "name": "Source",
+            "value": "All",
+            "bind": {
+                "input": "select",
+                "options": ["All", "Wind", "Hydro", "Solar", "Nuclear", "Biofuels", "GeoBiomass", "Coal", "Oil", "Gas"],
+                "name": "Energy Source: "
+            }
+        },
         {
             "name": "Year_selection",
             "value": 2021,
@@ -14,14 +23,6 @@
                 "max": 2021,
                 "step": 1,
                 "name": "Year:  "
-            }
-        },
-        {
-            "name": "Source",
-            "value": "All",
-            "bind": {
-                "input": "select",
-                "options": ["All", "Wind", "Hydro", "Solar", "Nuclear", "Biofuels", "GeoBiomass", "Coal", "Oil", "Gas"]
             }
         }
     ],
@@ -81,7 +82,7 @@
                     "scale": {
                         
                         "domain": [0, {"expr": "Source == 'All' ? 200 : Source == 'Wind' ? 8 : Source == 'Hydro' ? 100 : Source == 'Solar' ? 3 : Source == 'Nuclear' ? 20 : Source == 'Biofuels' ? 2 : Source == 'GeoBiomass' ? 15 : Source == 'Coal' ? 40 : Source == 'Oil' ? 100 : Source == 'Gas' ? 100 : 200"}],
-                        "scheme": "greens",
+                        "scheme": "purples",
                         "type": "linear"
                     },
                     "legend": { "format": ".2s" }
