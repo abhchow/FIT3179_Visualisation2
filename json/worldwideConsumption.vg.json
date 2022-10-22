@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Global Energy Consumption Per Capita",
+    "title": {"text": "Global Energy Consumption Per Capita", "fontSize": 18},
     "width": "container",
     "height": 400,
     "projection": { "type": "equalEarth" },
