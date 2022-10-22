@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Energy Consumption by Source", "fontSize": 18},
+    "title": {"text": "Total Energy Consumption Per Capita", "fontSize": 18},
     "width": "container",
     "height": 400,
     "data": {
@@ -86,7 +86,8 @@
                     "United States of America",
                     "Uzbekistan",
                     "Vietnam"
-                ]
+                ],
+                "name": "Country: "
             }
         }
     ],

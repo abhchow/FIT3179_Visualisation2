@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Energy Consumption by Source Per Capita", "fontSize": 18},
+    "title": {"text": "Energy Consumption by Source", "fontSize": 18},
     "width": "container",
     "height": 400,
     "data": {
@@ -92,8 +92,7 @@
         }
     ],
     "transform": [
-        { "filter": "datum.Entity == Country" },
-        { "calculate": "datum.Consumption/datum.Population * 1000000", "as": "ConsumptionNorm" }
+        { "filter": "datum.Entity == Country" }
     ],
     "mark": { "type": "line" },
     "encoding": {
@@ -101,18 +100,18 @@
         "y":
             {
                 "aggregate": "sum",
-                "field": "ConsumptionNorm",
-                "title": "Energy Consumption (MWh per capita)",
-                "axis": {"title": "Energy Consumption (MWh per capita)", "titleFontSize": 14}
+                "field": "Consumption",
+                "title": "Energy Consumption (TWh)",
+                "axis": {"title": "Energy Consumption (TWh)", "titleFontSize": 14}
             },
         "color":
             { "field": "Source",
                 "scale": {"scheme": "tableau10"},
-                "sort": {"op": "sum", "field": "ConsumptionNorm"}
+                "sort": {"op": "sum", "field": "Consumption"}
             },
         "tooltip": [
             { "field": "Source", "type": "nominal", "title": "Energy Source" },
-            { "field": "ConsumptionNorm", "type": "quantitative", "title": "Consumption (MWh per capita)" }
+            { "field": "Consumption", "type": "quantitative", "title": "Consumption (TWh)" }
         ]
         
     }

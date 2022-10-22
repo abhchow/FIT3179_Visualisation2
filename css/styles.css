@@ -12,7 +12,7 @@ body {
 }
 
 .page {
-    width: 1400px;
+    width: 1000px;
     background-color: white;
     margin: auto;
     padding: 50px;
@@ -34,6 +34,26 @@ h1 {
 
 .description-left {
     padding-right: 20px;
+}
+
+#caseStudyH {
+    text-align: center;
+}
+
+#caseStudyT {
+    text-align: center;
+}
+
+#title {
+    text-align: center;
+}
+
+#subtitle {
+    text-align: center;
+}
+
+#blurb {
+    text-align: center;
 }
 
 .pure-g {
